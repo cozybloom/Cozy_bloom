@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cozy Bloom | Artisan Pipe Cleaner Florals & Gifts</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Premium Animated Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="announcement-bar-track">
+      <span class="announcement-bar-content">🌸 Handcrafted in Egypt | Everlasting Blooms 🌸</span>
+      <span class="announcement-bar-content">🌸 Handcrafted in Egypt | Everlasting Blooms 🌸</span>
+      <span class="announcement-bar-content">🌸 Handcrafted in Egypt | Everlasting Blooms 🌸</span>
+      <span class="announcement-bar-content">🌸 Handcrafted in Egypt | Everlasting Blooms 🌸</span>
+    </div>
+  </div>
+
+  <nav id="main-nav">
+    <div class="nav-container">
+      <ul class="nav-links">
+        <li><a href="#Home" class="nav-link active" onclick="showStoreFront()">Home</a></li>
+        <li><a href="#Collections" class="nav-link" onclick="filterCategory('all')">Collections</a></li>
+        <li><a href="#custom-request" class="nav-link">Custom Order</a></li>
+      </ul>
+
+      <div class="brand" onclick="showStoreFront()">
+        <span class="brand-logo">🌸</span>
+        <div class="brand-text">
+          <span class="brand-name">Cozy Bloom</span>
+          <span class="brand-sub">Proudly Handcrafted in Egypt</span>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <button class="nav-icon-btn nav-cart-icon" aria-label="Shopping Cart" onclick="toggleSidebar(true)">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="nav-cart-count" id="cart-count">0</span>
+        </button>
+
+        <a href="https://wa.me/2001029790219" target="_blank" class="nav-cta">Order Now</a>
+
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation" aria-expanded="false"
+          onclick="toggleMobileMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#Home" onclick="showStoreFront(); toggleMobileMenu()">Home</a>
+    <a href="#Collections" onclick="filterCategory('all'); toggleMobileMenu()">Collections</a>
+    <a href="#custom-request" onclick="toggleMobileMenu()">Custom Order 🌸</a>
+    <a href="https://wa.me/2001029790219" target="_blank" class="mobile-cta">Order via WhatsApp</a>
+  </div>
+
+  <div class="cart-overlay" id="cart-overlay" onclick="closeAllOverlays()"></div>
+
+  <header id="Home" class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Handcrafted Warmth <br>Designed to <span class="highlight">Illuminate</span></h1>
+      <p class="hero-subtitle">Artisanal pipe cleaner creations crafted with love, bringing everlasting blooms and charm
+        into your personal space.</p>
+      <div class="hero-btns">
+        <a href="#Collections" class="btn-primary" onclick="showStoreFront()">Explore Collections</a>
+        <a href="#custom-request" class="btn-secondary">Request Custom Art</a>
+      </div>
+    </div>
+    <div class="hero-deco-bloom">🌸</div>
+  </header>
+
+  <main>
+    <div id="store-front-view">
+
+      <section class="section-header">
+        <span class="section-tag">Curated Collections</span>
+        <h2 class="section-title">Shop by Category</h2>
+      </section>
+
+      <div class="tabs-container" id="Collections">
+        <button class="tab-btn active" onclick="filterCategory('all')">All Products</button>
+        <button class="tab-btn" onclick="filterCategory('lamps')">Lamps</button>
+        <button class="tab-btn" onclick="filterCategory('bouquets')">Bouquets</button>
+        <button class="tab-btn" onclick="filterCategory('medals')">Bag Charms</button>
+        <button class="tab-btn" onclick="filterCategory('single-flowers')">Single Flowers</button>
+        <button class="tab-btn" onclick="filterCategory('mini-pots')">Mini Pots</button>
+        <button class="tab-btn" onclick="filterCategory('special')">Featured 🌸</button>
+      </div>
+
+      <div class="products-grid" id="products-container"></div>
+      <!-- أزرار التنقل بين الصفحات (Pagination) -->
+      <div class="pagination-container" id="pagination-container">
+        <!-- سيتم توليد الأزرار تلقائياً هنا بواسطة الجافا سكريبت -->
+      </div>
+
+      <section id="custom-request" class="custom-request-section">
+        <div class="custom-request-content">
+          <div class="custom-icon">🎀</div>
+          <h3 class="custom-title">Have a Bespoke Idea in Mind?</h3>
+          <p class="custom-text">Let us turn your imagination into a tangible handcrafted piece of art. Let’s
+            collaborate and design something special together!</p>
+          <a href="https://wa.me/2001029790219" target="_blank" class="whatsapp-custom-link">
+            Chat on WhatsApp <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+      <div class="cart-sidebar-header">
+        <h3>Shopping Bag <span class="cart-icon-wrap">🛍<span class="cart-quantity">0</span></span></h3>
+        <button class="close-sidebar-btn" onclick="toggleSidebar(false)">✕</button>
+      </div>
+
+      <div class="sidebar-items-list" id="sidebar-items-container">
+        <div class="empty-cart-message">Your bag is currently empty. Fill it with blossoms! 🌸</div>
+      </div>
+
+      <div class="cart-sidebar-footer">
+        <div class="cart-total-preview">
+          <span>Subtotal (excl. shipping):</span>
+          <span class="total-price"><span id="sidebar-total-price">0</span> EGP</span>
+        </div>
+        <button class="go-to-cart-page-btn" onclick="switchToCartPage()">Proceed to Checkout →</button>
+      </div>
+    </div>
+
+    <div id="cart-page-section" class="checkout-section">
+      <div class="checkout-container">
+        <div class="cart-page-header">
+          <h2>Checkout 🛍</h2>
+          <button class="back-to-shop-btn" onclick="showStoreFront()">← Continue Shopping</button>
+        </div>
+
+        <div class="checkout-layout">
+          <div class="checkout-summary">
+            <h4>Order Summary</h4>
+            <div class="cart-page-items" id="cart-page-items-container"></div>
+            <div class="cart-page-total">
+              <span>Total Amount:</span>
+              <span class="total-amount"><span id="cart-page-total-price">0</span> EGP</span>
+            </div>
+          </div>
+
+          <div class="cart-checkout-form">
+            <h4>Shipping Details 📋</h4>
+            <div class="input-group">
+              <label for="cust-name">Full Name</label>
+              <input type="text" id="cust-name" placeholder="e.g. Jane Doe" required>
+            </div>
+            <div class="input-group">
+              <label for="cust-phone">Phone Number (WhatsApp)</label>
+              <input type="tel" id="cust-phone" placeholder="e.g. 01029790219" required>
+            </div>
+            <div class="input-group">
+              <label for="cust-address">Shipping Address</label>
+              <input type="text" id="cust-address" placeholder="City, Street, Building No..." required>
+            </div>
+            <button class="cart-submit-btn" onclick="sendToWhatsApp()"> Confirm Order via WhatsApp 🚀</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="brand-name">Cozy Bloom</span>
+        <p>Spreading warmth and everlasting joy in every corner.</p>
+      </div>
+
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="https://www.tiktok.com/@mariaflowers06?_r=1&_t=ZS-97rv2oT1eem" target="_blank" class="social-icon tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/2001029790219" target="_blank" class="social-icon wa" title="WhatsApp"><i
+              class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Handcrafted with love by Cozy Bloom 🌸 &copy; 2026</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
