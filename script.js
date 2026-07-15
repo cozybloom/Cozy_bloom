@@ -1,962 +1,1498 @@
-// --- قاعدة البيانات الأساسية المرتبة بالفولدرات ---
-const products = [
-  /* ==========================================================================
-     1. قسم الأباجورات (Lamps) - 10 منتجات
-     ========================================================================== */
-  {
-    id: 'Lily Lamp',
-    name: 'Lily Lamp',
-    price: 500,
-    category: 'lamps',
-    image: 'img/lamps/lamp1.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'Stargazer lily lamp',
-    name: 'Stargazer lily lamp',
-    price: 550,
-    category: 'lamps',
-    image: 'img/lamps/lamp2.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'Giant Rapunzel Lamp',
-    name: 'Giant Rapunzel Lamp',
-    price: 700,
-    category: 'lamps',
-    image: 'img/lamps/lamp3.jpg',
-    hasColors: false,
-  },
-  {
-    id: 'Lotus Lamp',
-    name: 'Lotus Lamp',
-    price: 250,
-    category: 'lamps',
-    image: 'img/lamps/lamp4.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'Tulip Lamp',
-    name: 'Tulip Lamp',
-    price: 500,
-    category: 'lamps',
-    image: 'img/lamps/lamp5.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'Sunflower Lamp',
-    name: 'Sunflower Lamp',
-    price: 600,
-    category: 'lamps',
-    image: 'img/lamps/lamp6.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'Giant Tulip Lamp',
-    name: 'Giant Tulip Lamp',
-    price: 650,
-    category: 'lamps',
-    image: 'img/lamps/lamp7.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'Giant Tulip Lamp',
-    name: 'Giant Tulip Lamp',
-    price: 650,
-    category: 'lamps',
-    image: 'img/lamps/lamp8.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'Jellyfish lamp',
-    name: 'Jellyfish lamp',
-    price: 450,
-    category: 'lamps',
-    image: 'img/lamps/lamp9.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'Small Rapunzel Lamp',
-    name: 'Small Rapunzel Lamp',
-    price: 450,
-    category: 'lamps',
-    image: 'img/lamps/lamp10.jpg',
-    hasColors: false,
-  },
+/* ================= Variables & Global Styles ================= */
+:root {
+  --p-rose: #F4EAE6;
+  --p-sage: #E7EEEB;
+  --p-cream: #FDFBF7;
 
-  /* ==========================================================================
-     2. قسم الميداليات (Medals) - 8 منتجات
-     ========================================================================== */
-  {
-    id: 'medal-1',
-    name: 'Pearl Rose Charm',
-    price: 60,
-    category: 'medals',
-    image: 'img/medals/medal1.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'medal-2',
-    name: 'Octopus Charm',
-    price: 60,
-    category: 'medals',
-    image: 'img/medals/medal2.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'medal-3',
-    name: ' Mini Bouquet',
-    price: 60,
-    category: 'medals',
-    image: 'img/medals/medal3.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'medal-4',
-    name: 'Frog Duck',
-    price: 60,
-    category: 'medals',
-    image: 'img/medals/medal4.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'medal-5',
-    name: 'Hello Kitty',
-    price: 60,
-    category: 'medals',
-    image: 'img/medals/medal5.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'medal-6',
-    name: 'ميدالية شنطة هاند ميد رقم 6',
-    price: 60,
-    category: 'Yellow Bloomls',
-    image: 'img/medals/medal6.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'medal-7',
-    name: 'Sunflower Charm',
-    price: 60,
-    category: 'medals',
-    image: 'img/medals/medal7.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'medal-8',
-    name: 'Pink Bloom',
-    price: 60,
-    category: 'medals',
-    image: 'img/medals/medal8.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
+  --acc-rose: #D6A1A1;
+  --acc-rose-deep: #C08787;
+  --acc-sage: #8B9A46;
+  --acc-sage-deep: #6E7A38;
 
-  /* ==========================================================================
-   3. قسم البوكيهات (Bouquets) - 18 منتج
-   ========================================================================== */
-  {
-    id: 'bouquet-1',
-    name: 'Tulip Bouquet',
-    price: 700,
-    category: 'bouquets',
-    image: 'img/bouquets/bouquet1.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
+  --text-dark: #2B2D2F;
+  --text-muted: #626669;
+  --text-light: #FDFBF7;
 
-  },
-  {
-    id: 'bouquet-2',
-    name: 'Lilium Bouquet',
-    price: 600,
-    category: 'bouquets',
-    image: 'img/bouquets/bouquet2.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
+  --card-bg: #FFFFFF;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.08);
 
-  },
-  {
-    id: 'bouquet-3',
-    name: 'Flora Bouquet',
-    price: 850,
-    category: 'bouquets',
-    image: 'img/bouquets/bouquet3.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-
-  },
-  {
-    id: 'bouquet-4',
-    name: 'Heart Bouquet',
-    price: 400,
-    category: 'bouquets',
-    image: 'img/bouquets/bouquet4.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-
-  },
-  {
-    id: 'bouquet-5',
-    name: 'Camellia Bouquet',
-    price: 650,
-    category: 'bouquets',
-    image: 'img/bouquets/bouquet5.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-
-  },
-  {
-    id: 'bouquet-6',
-    name: 'Butterfly Bouquet',
-    price: 1550,
-    category: 'bouquets',
-    image: 'img/bouquets/bouquet6.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-
-  },
-  {
-    id: 'bouquet-7',
-    name: 'Magnolia Bouquet',
-    price: 470,
-    category: 'bouquets',
-    image: 'img/bouquets/bouquet7.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-
-  },
-  {
-    id: 'bouquet-8',
-    name: 'Sakura Bouquet',
-    price: 350,
-    category: 'bouquets',
-    image: 'img/bouquets/bouquet8.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-
-  },
-  {
-    id: 'bouquet-9',
-    name: 'Hydrangea Bouquet',
-    price: 400,
-    category: 'bouquets',
-    image: 'img/bouquets/bouquet9.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-
-  },
-
-  /* ==========================================================================
-   تابع قسم البوكيهات (Bouquets) - من 11 لـ 18
-   ========================================================================== */
-  {
-    id: 'bouquet-11',
-    name: 'Rose Bouquet',
-    price: 800,
-    category: 'bouquets',
-    image: 'img/bouquets/bouquet11.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-
-  },
-  {
-    id: 'bouquet-13',
-    name: 'Lily Bouquet',
-    price: 850,
-    category: 'bouquets',
-    image: 'img/bouquets/bouquet13.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-
-  },
-  {
-    id: 'bouquet-14',
-    name: 'Velvet Bouquet',
-    price: 500,
-    category: 'bouquets',
-    image: 'img/bouquets/bouquet14.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-
-  },
-  {
-    id: 'bouquet-16',
-    name: 'Dahlia Bouquet',
-    price: 900,
-    category: 'bouquets',
-    image: 'img/bouquets/bouquet16.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-
-  },
-  {
-    id: 'bouquet-17',
-    name: 'Jasmine Bouquet',
-    price: 450,
-    category: 'bouquets',
-    image: 'img/bouquets/bouquet17.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-
-  },
-  {
-    id: 'bouquet-18',
-    name: 'Iris Bouquet',
-    price: 400,
-    category: 'bouquets',
-    image: 'img/bouquets/bouquet18.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"],
-    hasLed: true,    // خيار الإضاءة متاح
-    ledPrice: 30     // تكلفة إضافة الـ LED
-  },
-  /* ==========================================================================
-     4. قسم وردة سنجل عادية (Single Flowers) - 7 منتجات
-     ========================================================================== */
-  {
-    id: 'sflower-1',
-    name: 'Single Rose',
-    price: 80,
-    category: 'single-flowers',
-    image: 'img/normal-flowers/flower1.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'sflower-2',
-    name: ' Wrapped sunflower',
-    price: 100,
-    category: 'single-flowers',
-    image: 'img/normal-flowers/flower2.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'sflower-3',
-    name: 'Wrapped rose',
-    price: 100,
-    category: 'single-flowers',
-    image: 'img/normal-flowers/flower3.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'sflower-4',
-    name: 'Wrapped lily',
-    price: 100,
-    category: 'single-flowers',
-    image: 'img/normal-flowers/flower4.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'sflower-5',
-    name: 'Peony flower',
-    price: 130,
-    category: 'single-flowers',
-    image: 'img/normal-flowers/flower5.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'sflower-6',
-    name: 'Whispering Tulip ',
-    price: 100,
-    category: 'single-flowers',
-    image: 'img/normal-flowers/flower6.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'sflower-7',
-    name: 'Wrapped tulip',
-    price: 100,
-    category: 'single-flowers',
-    image: 'img/normal-flowers/flower7.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-
-  /* ==========================================================================
-     5. قسم وردة سنجل عملاقة (Giant Flowers) - 5 منتجات
-     ========================================================================== */
-  {
-    id: 'gflower-1',
-    name: 'Giant rose',
-    price: 500,
-    category: 'single-flowers',
-    image: 'img/giant-flowers/flower8.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'gflower-2',
-    name: 'Giant rose',
-    price: 500,
-    category: 'single-flowers',
-    image: 'img/giant-flowers/flower9.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'gflower-3',
-    name: 'Giant rose',
-    price: 500,
-    category: 'single-flowers',
-    image: 'img/giant-flowers/flower10.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'gflower-4',
-    name: 'Giant rose',
-    price: 500,
-    category: 'single-flowers',
-    image: 'img/giant-flowers/flower11.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'gflower-5',
-    name: ' Giant rose',
-    price: 500,
-    category: 'single-flowers',
-    image: 'img/giant-flowers/flower12.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-
-  /* ==========================================================================
-     6. قسم ميني بوت زينة مكتب (Mini Pots) - 10 منتجات
-     ========================================================================== */
-  /* ==========================================================================
-     قسم الأصص الصغيرة (Mini Pots) - من 1 لـ 11
-     ========================================================================== */
-  {
-    id: 'pot-1',
-    name: 'Lily Mini Pot',
-    price: 90,
-    category: 'mini-pots',
-    image: 'img/mini_pots/pot1.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'pot-2',
-    name: 'Blossom Mini Pot',
-    price: 90,
-    category: 'mini-pots',
-    image: 'img/mini_pots/pot2.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'pot-3',
-    name: 'Daisy Desk Buddy',
-    price: 90,
-    category: 'mini-pots',
-    image: 'img/mini_pots/pot3.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'pot-4',
-    name: 'Hydrangea Mini Pot',
-    price: 90,
-    category: 'mini-pots',
-    image: 'img/mini_pots/pot4.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'pot-5',
-    name: 'Trio Daisy Pot',
-    price: 90,
-    category: 'mini-pots',
-    image: 'img/mini_pots/pot5.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'pot-6',
-    name: 'Lotus Mini Pot',
-    price: 90,
-    category: 'mini-pots',
-    image: 'img/mini_pots/pot6.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'pot-7',
-    name: 'Mini Daisy Pot',
-    price: 90,
-    category: 'mini-pots',
-    image: 'img/mini_pots/pot7.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'pot-8',
-    name: 'Sunflower Mini Pot',
-    price: 90,
-    category: 'mini-pots',
-    image: 'img/mini_pots/pot8.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'pot-9',
-    name: 'Bow Tulip Pot',
-    price: 90,
-    category: 'mini-pots',
-    image: 'img/mini_pots/pot9.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'pot-10',
-    name: 'Lavender Tulip Pot',
-    price: 90,
-    category: 'mini-pots',
-    image: 'img/mini_pots/pot10.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'pot-11',
-    name: 'Bunny Tulip Pot',
-    price: 100,
-    category: 'mini-pots',
-    image: 'img/mini_pots/pot11.jpg',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  /* ==========================================================================
-     7. قسم خاص (Special) - 3 منتجات
-     ========================================================================== */
-  {
-    id: 'spec-1',
-    name: 'Graduation Package',
-    price: 800,
-    category: 'special',
-    image: 'img/special/graduation1.jpg',
-    hasColors: false
-  },
-  {
-    id: 'spec-1-2',
-    name: 'Graduation Package',
-    price: 800,
-    category: 'special',
-    image: 'img/special/graduation2.jpg',
-    hasColors: false
-  },
-  {
-    id: 'spec-2',
-    name: 'Wall Hanger',
-    price: 450,
-    category: 'special',
-    image: 'img/special/hanger.png',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  },
-  {
-    id: 'spec-3',
-    name: 'Pearl Shell',
-    price: 300,
-    category: 'special',
-    image: 'img/special/shell.png',
-    hasColors: true,
-    colors: ["Baby Pink", "Hot Pink", "Royal Blue", "Baby Blue", "White", "Lavender", "Purple", "Orange", "Yellow"]
-  }
-];
-let cart = [];
-let currentPage = 1;
-const productsPerPage = 8; // حددي عدد المنتجات التي ترغبين في ظهورها بالصفحة الواحدة هنا
-let filteredProducts = []; // لتخزين المنتجات بعد تصفيتها وقبل تقسيمها
-
-// عرض المنتجات في المتجر مع دعم تقسيم الصفحات
-function displayProducts() {
-  let container = document.getElementById('products-container');
-  container.innerHTML = '';
-
-  // حساب مؤشر البداية والنهاية للمنتجات في الصفحة الحالية
-  const startIndex = (currentPage - 1) * productsPerPage;
-  const endIndex = startIndex + productsPerPage;
-  const productsToDisplay = filteredProducts.slice(startIndex, endIndex);
-
-  if (productsToDisplay.length === 0) {
-    container.innerHTML = '<p style="text-align:center; color:#999; padding:20px; grid-column: 1/-1;">لا توجد منتجات في هذا القسم حالياً 🌸</p>';
-    document.getElementById('pagination-container').innerHTML = '';
-    return;
-  }
-
-  productsToDisplay.forEach(product => {
-    // 🎨 خيار الألوان
-    let colorHTML = product.hasColors ? `
-                    <select class="color-selector" id="color-${product.id}">
-                    <option value="" disabled selected hidden>Colors</option>                        ${product.colors.map(color => `<option value="${color}">${color}</option>`).join('')}
-                    </select>
-                ` : '<div style="height:10px;"></div>';
-
-    // 💡 خيار الـ LED (معدل لضمان بقاء النص والـ Checkbox على سطر واحد دائماً)
-    let ledHTML = product.hasLed ? `
-                    <div class="led-option-wrap" style="margin: 6px 0; text-align: left; font-size: 0.75rem; width: 100%;">
-                        <label style="cursor: pointer; display: inline-flex; align-items: center; gap: 4px; color: #666; white-space: nowrap;">
-                            <input type="checkbox" id="led-${product.id}" style="margin: 0; transform: scale(0.9);">
-                            <span>Add LED Light </span>
-                        </label>
-                    </div>
-                ` : '';
-
-    const card = document.createElement('div');
-    card.className = 'product-card';
-    card.innerHTML = `
-                    <div class="product-img-container">
-                        <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x400?text=Cozy+Bloom'">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">${product.name}</h3>
-                        <p class="product-price">${product.price} EGP</p>
-                        ${colorHTML}
-                        ${ledHTML}
-                        <button class="add-to-cart-btn" onclick="addToCart('${product.id}')"> Add to Cart</button>
-                    </div>
-                `;
-    container.appendChild(card);
-  });
-
-  // توليد أزرار التنقل والصفحات أسفل المنتجات
-  setupPagination();
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-title: 'Playfair Display', serif;
 }
 
-// توليد أزرار الصفحات ديناميكياً
-function setupPagination() {
-  const paginationContainer = document.getElementById('pagination-container');
-  if (!paginationContainer) return; // حماية في حال لم يتم وضع الحاوية في الـ HTML بعد
-
-  paginationContainer.innerHTML = '';
-  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
-
-  // إذا كانت المنتجات تكفي لصفحة واحدة فقط، لا داعي لعرض الأزرار
-  if (totalPages <= 1) return;
-
-  // زر الصفحة السابقة (←)
-  const prevBtn = document.createElement('button');
-  prevBtn.className = 'page-btn';
-  prevBtn.innerHTML = '←';
-  prevBtn.disabled = currentPage === 1;
-  prevBtn.onclick = () => {
-    if (currentPage > 1) {
-      currentPage--;
-      displayProducts();
-      scrollToCollections();
-    }
-  };
-  paginationContainer.appendChild(prevBtn);
-
-  // أزرار أرقام الصفحات
-  for (let i = 1; i <= totalPages; i++) {
-    const pageBtn = document.createElement('button');
-    pageBtn.className = `page-btn ${currentPage === i ? 'active' : ''}`;
-    pageBtn.innerText = i;
-    pageBtn.onclick = () => {
-      currentPage = i;
-      displayProducts();
-      scrollToCollections();
-    };
-    paginationContainer.appendChild(pageBtn);
-  }
-
-  // زر الصفحة التالية (→)
-  const nextBtn = document.createElement('button');
-  nextBtn.className = 'page-btn';
-  nextBtn.innerHTML = '→';
-  nextBtn.disabled = currentPage === totalPages;
-  nextBtn.onclick = () => {
-    if (currentPage < totalPages) {
-      currentPage++;
-      displayProducts();
-      scrollToCollections();
-    }
-  };
-  paginationContainer.appendChild(nextBtn);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-// دالة مساعدة لرفع الصفحة لأعلى قسم المنتجات بسلاسة عند الانتقال لصفحة أخرى
-function scrollToCollections() {
-  const collectionsSection = document.getElementById('Collections');
-  if (collectionsSection) {
-    window.scrollTo({
-      top: collectionsSection.offsetTop - 100, // يترك مساحة صغيرة مريحة أعلى الفلتر
-      behavior: 'smooth'
-    });
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--p-cream);
+  color: var(--text-dark);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  direction: ltr;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-title);
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: all 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Premium Animated Announcement Bar */
+.announcement-bar {
+  background-color: var(--acc-rose-deep);
+  color: var(--text-light);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+/* التراك اللي بيشيل الجملتين وبيتحرك */
+.announcement-bar-track {
+  display: inline-flex;
+  animation: marquee 30s linear infinite;
+  -webkit-animation: marquee 30s linear infinite;
+}
+
+/* تنسيق الجمل والمساحة بينهم */
+.announcement-bar-content {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0 50px;
+  /* مسافة أمان بين الجملة المكررة لتظهر بشكل مستمر */
+}
+
+/* حركة الأنيميشن لجعل الشريط يتحرك بشكل لا نهائي وناعم */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+    /* بيتحرك لنص التراك بالظبط عشان يلف تاني بسلاسة وبدون تقطيع */
   }
 }
 
-// دالة حساب السعر الإجمالي للمنتج مع إضافة سعر الليد إذا تم تحديده
-// دالة حساب السعر الإجمالي (تم تعديلها ليكون الليد مجاني وبدون أي زيادة في السعر)
-function calculateTotal(product, hasLedSelected) {
-  return product.price; // بيرجع سعر البوكيه الأصلي زي ما هو دايماً
+/* ================= Button Styles ================= */
+.btn-primary {
+  display: inline-block;
+  padding: 14px 32px;
+  background-color: var(--acc-rose);
+  color: var(--text-light);
+  border-radius: 50px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(214, 161, 161, 0.3);
 }
 
-// تصفية المنتجات حسب التصنيف وإعادة ضبط الصفحات
-function filterCategory(category) {
-  showStoreFront();
-
-  // تصفية المنتجات الأصلية وإعادتها للصفحة الأولى دائماً عند تغيير الفئة
-  filteredProducts = category === 'all' ? products : products.filter(p => p.category === category);
-  currentPage = 1;
-  displayProducts();
-
-  const buttons = document.querySelectorAll('.tab-btn');
-  buttons.forEach(btn => btn.classList.remove('active'));
-
-  const matchBtn = Array.from(buttons).find(btn => btn.getAttribute('onclick').includes(category));
-  if (matchBtn) matchBtn.classList.add('active');
+.btn-primary:hover {
+  background-color: var(--acc-rose-deep);
+  transform: translateY(-2px);
 }
 
-// إضافة للمجموعات وتحديث السلة
-function addToCart(productId) {
-  const product = products.find(p => p.id === productId);
-  let selectedColor = '';
+.btn-secondary {
+  display: inline-block;
+  padding: 14px 32px;
+  background-color: transparent;
+  color: var(--acc-sage-deep);
+  border: 2px solid var(--acc-sage);
+  border-radius: 50px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
 
-  // 1. التأكد من اللون
-  if (product.hasColors) {
-    const colorSelect = document.getElementById(`color-${productId}`);
-    selectedColor = colorSelect.value;
-    if (!selectedColor) {
-      showToast('Please select a color first! 🌸');
-      return;
-    }
+.btn-secondary:hover {
+  background-color: var(--acc-sage);
+  color: var(--text-light);
+}
+
+/* ================= Navigation Bar ================= */
+nav {
+  background-color: rgba(253, 251, 247, 0.95);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(231, 238, 235, 0.6);
+}
+
+.nav-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 18px 25px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+/* Links Left */
+nav .nav-links {
+  grid-column: 1;
+  display: flex;
+  gap: 32px;
+}
+
+nav .nav-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  position: relative;
+}
+
+nav .nav-link:hover,
+nav .nav-link.active {
+  color: var(--acc-rose-deep);
+}
+
+nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--acc-rose);
+  transition: width 0.3s ease;
+}
+
+nav .nav-link:hover::after,
+nav .nav-link.active::after {
+  width: 100%;
+}
+
+/* Center Logo */
+nav .brand {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+nav .brand-logo {
+  font-size: 2.2rem;
+  animation: heartBeat 2.5s infinite ease-in-out;
+}
+
+nav .brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+nav .brand-name {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  color: var(--acc-sage-deep);
+}
+
+nav .brand-sub {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--acc-rose-deep);
+  margin-top: 3px;
+}
+
+/* Actions Right */
+nav .nav-actions {
+  grid-column: 3;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  justify-self: end;
+}
+
+nav .nav-icon-btn {
+  position: relative;
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav .nav-icon-btn:hover {
+  color: var(--acc-rose-deep);
+  background-color: rgba(214, 161, 161, 0.15);
+}
+
+nav .nav-cart-count {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background-color: var(--acc-rose-deep);
+  color: #fff;
+  font-size: 0.68rem;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+nav .nav-cta {
+  padding: 10px 24px;
+  background-color: var(--acc-sage);
+  color: #fff;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(139, 154, 70, 0.2);
+}
+
+nav .nav-cta:hover {
+  background-color: var(--acc-sage-deep);
+  box-shadow: 0 6px 15px rgba(139, 154, 70, 0.3);
+}
+
+/* Mobile Toggle */
+nav .nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 28px;
+  z-index: 1001;
+}
+
+nav .nav-toggle span {
+  width: 100%;
+  height: 2.5px;
+  background-color: var(--acc-sage-deep);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* ================= Hero Section ================= */
+.hero-section {
+  height: 80vh;
+  min-height: 550px;
+  background: linear-gradient(135deg, var(--p-rose) 0%, var(--p-sage) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+.hero-content {
+  max-width: 850px;
+  z-index: 10;
+  animation: fadeInUp 1s ease;
+}
+
+.hero-title {
+  font-size: 3.4rem;
+  line-height: 1.15;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+
+.hero-title .highlight {
+  color: var(--acc-rose-deep);
+  font-style: italic;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  font-weight: 500;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.hero-deco-bloom {
+  position: absolute;
+  font-size: 16rem;
+  color: rgba(255, 255, 255, 0.35);
+  bottom: -60px;
+  right: -60px;
+  animation: rotateBloom 25s linear infinite;
+  pointer-events: none;
+}
+
+/* ================= Section Layouts ================= */
+.section-header {
+  text-align: center;
+  margin: 90px auto 40px;
+  max-width: 600px;
+}
+
+.section-tag {
+  display: inline-block;
+  padding: 6px 18px;
+  background-color: var(--p-sage);
+  color: var(--acc-sage-deep);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 2.8rem;
+}
+
+/* Filter Tabs */
+.tabs-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 0 20px;
+  margin-bottom: 50px;
+}
+
+.tab-btn {
+  padding: 10px 24px;
+  background-color: #fff;
+  color: var(--text-muted);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-sm);
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+  background-color: var(--acc-rose);
+  color: #fff;
+  border-color: var(--acc-rose);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(214, 161, 161, 0.25);
+}
+
+/* ================= Products Grid ================= */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 35px;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 25px 90px;
+}
+
+/* Product Card */
+.product-card {
+  background-color: var(--card-bg);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(240, 230, 230, 0.6);
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md);
+}
+
+.product-img-container {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  background-color: #FAFAFA;
+}
+
+.product-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-img-container img {
+  transform: scale(1.06);
+}
+
+.product-info {
+  padding: 24px;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-title {
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+  color: var(--text-dark);
+}
+
+.product-price {
+  font-size: 1.2rem;
+  color: var(--acc-sage-deep);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.color-selector {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #FDFDFD;
+  margin-bottom: 18px;
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  font-size: 0.88rem;
+  outline: none;
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--acc-rose);
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-top: auto;
+}
+
+.add-to-cart-btn:hover {
+  background-color: var(--acc-rose-deep);
+}
+
+/* ================= Custom Order Section ================= */
+.custom-request-section {
+  background-color: #fff;
+  padding: 90px 20px;
+  margin-bottom: 90px;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.custom-request-content {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.custom-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.custom-title {
+  font-size: 2.6rem;
+  margin-bottom: 16px;
+}
+
+.custom-text {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+}
+
+.whatsapp-custom-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  background-color: #25D366;
+  color: #fff;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
+}
+
+.whatsapp-custom-link:hover {
+  background-color: #128C7E;
+  transform: translateY(-2px);
+}
+
+/* ================= Cart Sidebar ================= */
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 1500;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.cart-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  /* Slides in from right for LTR */
+  width: 400px;
+  height: 100%;
+  background-color: #fff;
+  z-index: 1600;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.08);
+  transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-sidebar.open {
+  right: 0;
+}
+
+.cart-sidebar-header {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.cart-sidebar-header h3 {
+  font-size: 1.35rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-icon-wrap {
+  position: relative;
+  font-size: 1.2rem;
+}
+
+.cart-quantity {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: var(--acc-rose);
+  color: #fff;
+  font-size: 0.65rem;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.close-sidebar-btn {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
+
+.sidebar-items-list {
+  flex-grow: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.sidebar-item {
+  display: grid;
+  grid-template-columns: 65px 1fr auto;
+  gap: 15px;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.item-img {
+  width: 65px;
+  height: 65px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.item-details h5 {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+
+.item-details p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.item-price {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--acc-sage-deep);
+}
+
+.empty-cart-message {
+  text-align: center;
+  color: var(--text-muted);
+  margin-top: 60px;
+  font-size: 0.95rem;
+}
+
+.cart-sidebar-footer {
+  padding: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  background-color: #FAFAFA;
+}
+
+.cart-total-preview {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.total-price {
+  font-size: 1.2rem;
+  color: var(--acc-sage-deep);
+  font-weight: 700;
+}
+
+.go-to-cart-page-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--acc-sage);
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* ================= Checkout Page Section ================= */
+.checkout-section {
+  display: none;
+  padding: 60px 20px 100px;
+  animation: fadeIn 0.4s ease;
+}
+
+.checkout-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.cart-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--p-sage);
+}
+
+.cart-page-header h2 {
+  font-size: 2.4rem;
+}
+
+.back-to-shop-btn {
+  padding: 8px 22px;
+  border: 2px solid var(--acc-rose);
+  color: var(--acc-rose-deep);
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.checkout-layout {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 40px;
+  align-items: start;
+}
+
+.checkout-summary,
+.cart-checkout-form {
+  background-color: #fff;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.checkout-summary h4,
+.cart-checkout-form h4 {
+  margin-bottom: 24px;
+  font-size: 1.35rem;
+}
+
+.cart-page-items {
+  margin-bottom: 20px;
+}
+
+.checkout-item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.checkout-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.cart-page-total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 2px solid var(--p-sage);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.total-amount {
+  color: var(--acc-sage-deep);
+}
+
+.input-group {
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.88rem;
+  margin-bottom: 6px;
+  color: var(--text-dark);
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  font-family: var(--font-body);
+  background-color: #FAFAFA;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.input-group input:focus {
+  border-color: var(--acc-rose);
+  background-color: #fff;
+}
+
+.cart-submit-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #25D366;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: 15px;
+}
+
+/* ================= Footer ================= */
+footer {
+  background-color: var(--p-sage);
+  padding: 70px 20px 30px;
+  margin-top: auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.footer-container {
+  max-width: 1250px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+.footer-brand .brand-name {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  color: var(--acc-sage-deep);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.footer-brand p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  max-width: 320px;
+}
+
+footer h4 {
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+  color: var(--acc-sage-deep);
+}
+
+.footer-links a {
+  display: block;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  color: var(--acc-rose-deep);
+  transform: translateX(3px);
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icon {
+  font-size: 1.1rem;
+  width: 38px;
+  height: 38px;
+  background-color: #fff;
+  color: var(--acc-sage-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  color: #fff;
+}
+
+.social-icon.insta:hover {
+  background-color: #E1306C;
+}
+
+.social-icon.tiktok:hover {
+  background-color: #000000;
+}
+
+.social-icon.fb:hover {
+  background-color: #1877F2;
+}
+
+.social-icon.wa:hover {
+  background-color: #25D366;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 25px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* ================= Responsive Layout ================= */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 3.2rem;
   }
 
-  // 2. التفتيش على خيار الـ LED
-  let hasLedSelected = false;
-  if (product.hasLed) {
-    const ledCheckbox = document.getElementById(`led-${productId}`);
-    if (ledCheckbox && ledCheckbox.checked) {
-      hasLedSelected = true;
-    }
+  .checkout-layout {
+    grid-template-columns: 1fr;
   }
 
-  // 3. حساب السعر المطلوب (بالإضاءة أو بدون)
-  const itemPrice = calculateTotal(product, hasLedSelected);
-
-  // 4. إضافة المنتج للسلة (مع التمييز بين الذي بـ LED والذي بدونه)
-  const cartItem = cart.find(item => item.id === productId && item.color === selectedColor && item.hasLed === hasLedSelected);
-
-  if (cartItem) {
-    cartItem.qty++;
-  } else {
-    cart.push({
-      ...product,
-      price: itemPrice, // السعر المعدل
-      color: selectedColor,
-      hasLed: hasLedSelected,
-      qty: 1
-    });
-  }
-
-  updateCartUI();
-  toggleSidebar(true);
-}
-
-// تحديث واجهات السلة
-// تحديث واجهات السلة (تظهر خيار الليد بالإنجليزية وبدون أي زيادة في السعر)
-function updateCartUI() {
-  const sidebarContainer = document.getElementById('sidebar-items-container');
-  const pageContainer = document.getElementById('cart-page-items-container');
-
-  sidebarContainer.innerHTML = '';
-  pageContainer.innerHTML = '';
-
-  let total = 0;
-  let count = 0;
-
-  if (cart.length === 0) {
-    sidebarContainer.innerHTML = '<p style="text-align:center; color:#999; padding:20px;">السلة فارغة 🌸</p>';
-    pageContainer.innerHTML = '<p style="text-align:center; color:#999; padding:20px;">السلة فارغة حالياً.. املأيها بالورد والجمال! 🌸</p>';
-  } else {
-    cart.forEach((item, index) => {
-      total += item.price * item.qty;
-      count += item.qty;
-
-      // إظهار خيار الليد بالإنجليزية بشكل مميز وأنيق
-      const ledBadge = item.hasLed ? '<br><small style="color:#FFB84C; font-weight:bold;">💡 LED Light Included (Free)</small>' : '';
-
-      // 1. السلة الجانبية
-      const sItem = document.createElement('div');
-      sItem.className = 'sidebar-item';
-      sItem.innerHTML = `
-                        <div>
-                            <strong>${item.name}</strong>
-                            ${item.color ? `<br><small style="color:#888;">اللون: ${item.color}</small>` : ''}
-                            ${ledBadge}
-                            <br><small>${item.price} EGP × ${item.qty}</small>
-                        </div>
-                        <button onclick="removeFromCart(${index})" style="color:#FF6B6B; background:none; border:none; cursor:pointer;">✕</button>
-                    `;
-      sidebarContainer.appendChild(sItem);
-
-      // 2. الصفحة المنفصلة الكاملة
-      const pItem = document.createElement('div');
-      pItem.className = 'cart-page-item';
-      pItem.innerHTML = `
-                        <div>
-                            <strong>${item.name}</strong>
-                            ${item.color ? `<br><small style="color:#888;">اللون: ${item.color}</small>` : ''}
-                            ${ledBadge}
-                            <br><small>${item.price} EGP × ${item.qty}</small>
-                        </div>
-                        <button onclick="removeFromCart(${index})" style="color:#FF6B6B; background:none; border:none; cursor:pointer; font-weight:bold;">حذف</button>
-                    `;
-      pageContainer.appendChild(pItem);
-    });
-  }
-
-  document.getElementById('cart-page-total-price').innerText = total;
-  document.getElementById('cart-count').innerText = count;
-}
-
-function removeFromCart(index) {
-  cart.splice(index, 1);
-  updateCartUI();
-}
-
-// التحكم في فتح وقفل السلة والـ Overlay الشفاف
-function toggleSidebar(show) {
-  const sidebar = document.getElementById('cart-sidebar');
-  const overlay = document.getElementById('cart-overlay');
-  if (show) {
-    sidebar.classList.add('open');
-    overlay.classList.add('show');
-  } else {
-    sidebar.classList.remove('open');
-    overlay.classList.remove('show');
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-function switchToCartPage() {
-  toggleSidebar(false);
-  showCartPage();
-}
+@media (max-width: 850px) {
 
-function showCartPage() {
-  document.getElementById('store-front-view').style.display = 'none';
-  document.getElementById('cart-page-section').style.display = 'block';
-  document.getElementById('Home').style.display = 'none';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function showStoreFront() {
-  document.getElementById('cart-page-section').style.display = 'none';
-  document.getElementById('Home').style.display = 'flex';
-  document.getElementById('store-front-view').style.display = 'block';
-}
-
-// إرسال البيانات للواتساب (معدل لإظهار خيار الليد)
-function sendToWhatsApp() {
-  const name = document.getElementById('cust-name').value.trim();
-  const phone = document.getElementById('cust-phone').value.trim();
-  const address = document.getElementById('cust-address').value.trim();
-
-  if (!name || !phone || !address) {
-    showToast('Please fill in your delivery details! 📦');
-    return;
+  nav .nav-links,
+  nav .nav-cta {
+    display: none;
   }
 
-  if (cart.length === 0) {
-    showToast('Your cart is empty! Add some beautiful flowers first 😉');
-    return;
+  nav .nav-toggle {
+    display: flex;
+    grid-column: 1;
   }
 
-  let message = `🌸 *طلب جديد من متجر Cozy Bloom* 🌸\n\n`;
-  message += `👤 *الاسم:* ${name}\n`;
-  message += `📞 *الرقم:* ${phone}\n`;
-  message += `📍 *العنوان:* ${address}\n\n`;
-  message += `🛍 *المنتجات المطلوبة:*\n`;
-
-  let total = 0;
-  cart.forEach(item => {
-    const itemTotal = item.price * item.qty;
-    total += itemTotal;
-
-    // 💡 1. بناء تفاصيل المنتج (الاسم واللون إن وجد)
-    let itemDetails = `- ${item.name}`;
-    if (item.color) {
-      itemDetails += ` (اللون: ${item.color})`;
-    }
-
-    // 💡 2. إضافة خيار الليد بوضوح إلى جانب المنتج إذا كان العميل قد اختاره
-    if (item.hasLed) {
-      itemDetails += ` [مع إضاءة LED 💡]`;
-    }
-
-    // 3. إضافة العدد والسعر الإجمالي للمنتج في السطر
-    message += `${itemDetails} | العدد: ${item.qty} | السعر: ${itemTotal} EGP\n`;
-  });
-
-  message += `\n💰 *الإجمالي الكلي:* ${total} EGP`;
-
-  const whatsappUrl = `https://wa.me/201070648458?text=${encodeURIComponent(message)}`;
-  window.open(whatsappUrl, '_blank');
-}
-// التحكم في قائمة الموبايل المنسدلة
-function toggleMobileMenu() {
-  const nav = document.getElementById('main-nav');
-  const menu = document.getElementById('mobile-menu');
-  const toggle = document.getElementById('nav-toggle');
-  const isOpen = menu.classList.toggle('open');
-  nav.classList.toggle('menu-open', isOpen);
-  toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-}
-
-// التشغيل المبدئي للمتجر بعرض كل المنتجات
-filterCategory('all');
-
-// دالة لإظهار رسالة تنبيه شيك بديلة للـ alert التقليدية
-function showToast(message) {
-  // 1. التحقق من عدم وجود رسالة قديمة معروضة حالياً عشان ميتراكموش فوق بعض
-  let existingToast = document.querySelector('.toast-notification');
-  if (existingToast) {
-    existingToast.remove();
+  nav .brand {
+    grid-column: 2;
   }
 
-  // 2. إنشاء عنصر الرسالة الجديد
-  const toast = document.createElement('div');
-  toast.className = 'toast-notification';
-  toast.innerText = message;
+  nav .brand-name {
+    font-size: 1.8rem;
+  }
 
-  // 3. إضافة الرسالة لـ body الصفحة
-  document.body.appendChild(toast);
+  nav .brand-sub {
+    display: none;
+  }
 
-  // 4. إظهار الرسالة بتأثير الحركة بعد جزء من الثانية
-  setTimeout(() => {
-    toast.classList.add('show');
-  }, 50);
+  nav .nav-actions {
+    grid-column: 3;
+  }
 
-  // 5. إخفاء الرسالة وحذفها بعد 3 ثواني (3000 مللي ثانية)
-  setTimeout(() => {
-    toast.classList.remove('show');
-    // حذف العنصر تماماً من الكود بعد انتهاء حركة الاختفاء
-    setTimeout(() => {
-      toast.remove();
-    }, 400);
-  }, 3000);
+  .mobile-menu {
+    position: fixed;
+    top: 73px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    z-index: 999;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+
+  .mobile-menu.open {
+    max-height: 320px;
+    opacity: 1;
+    padding: 15px 0;
+  }
+
+  .mobile-menu a {
+    display: block;
+    padding: 14px 25px;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  .mobile-menu .mobile-cta {
+    background-color: var(--acc-sage);
+    color: #fff;
+    margin: 10px 25px;
+    border-radius: 8px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-section {
+    height: 75vh;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-sidebar {
+    width: 100%;
+    right: -100%;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-brand p {
+    margin: 0 auto;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+/* ================= Animations ================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rotateBloom {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes heartBeat {
+  0% {
+    transform: scale(1);
+  }
+
+  15% {
+    transform: scale(1.1);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+nav.menu-open .nav-toggle span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+
+nav.menu-open .nav-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+nav.menu-open .nav-toggle span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* إخفاء قائمة الموبايل تماماً افتراضياً وفي الشاشات الكبيرة */
+.mobile-menu {
+  display: none !important;
+}
+
+/* إظهار القائمة فقط عند تصغير الشاشة (الموبايل والتابلت) */
+@media (max-width: 850px) {
+  .mobile-menu {
+    display: block !important;
+    /* أو المساعدة في إظهارها حسب طريقة التبديل */
+    position: fixed;
+    top: 73px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    z-index: 999;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+
+  .mobile-menu.open {
+    max-height: 320px;
+    opacity: 1;
+    padding: 15px 0;
+  }
+}
+
+/* تعديل هيدر الشيك أوت للشاشات الصغيرة */
+@media (max-width: 600px) {
+  .cart-page-header {
+    flex-direction: column !important;
+    /* ترتيب العناصر تحت بعض */
+    align-items: center !important;
+    /* محاذاة في المنتصف */
+    gap: 15px !important;
+    /* مسافة مريحة بينهم */
+    text-align: center;
+  }
+
+  .cart-page-header h2 {
+    font-size: 1.8rem !important;
+    /* تصغير الخط قليلاً ليلائم الموبايل */
+    margin: 0;
+  }
+
+  .back-to-shop-btn {
+    width: 100%;
+    /* جعل الزر بعرض الشاشة أو متناسق */
+    max-width: 250px;
+    padding: 10px 16px !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 40px 0;
+}
+
+.page-btn {
+  background-color: #fff;
+  border: 1px solid #f0dbdb;
+  /* لون وردي هادئ جداً متناسق مع البراند */
+  color: #555;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.page-btn:hover {
+  background-color: #ffeef0;
+  border-color: #ffb7b2;
+}
+
+.page-btn.active {
+  background-color: #ffb7b2;
+  /* اللون الوردي الأساسي للموقع عند تنشيط الصفحة */
+  color: #fff;
+  border-color: #ffb7b2;
+  font-weight: 600;
+}
+
+.page-btn:disabled {
+  background-color: #f5f5f5;
+  color: #ccc;
+  border-color: #e0e0e0;
+  cursor: not-allowed;
+}
+
+/* ================= Cart Sidebar Styles (Optimized) ================= */
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  /* مخفية خارج الشاشة جهة اليمين */
+  width: 400px;
+  height: 100%;
+  background-color: #fff;
+  z-index: 1600;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.08);
+  transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-sidebar.open {
+  right: 0;
+}
+
+/* تنسيق قائمة المنتجات بداخل السلة لتكون مرتبة أفقياً */
+.sidebar-items-list {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* مسافة متناسقة بين كل منتج والآخر */
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.item-img {
+  width: 75px;
+  height: 75px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+  /* يمنع انضغاط الصورة */
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.item-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  /* مسافة بسيطة بين اسم المنتج والخيارات */
+}
+
+.item-details h5 {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.item-details p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.item-price {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--acc-sage-deep);
+  margin-top: 2px;
+}
+
+/* زر حذف المنتج من السلة إذا كان متواجداً */
+.remove-item-btn {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  padding: 5px;
+  transition: color 0.2s ease;
+}
+
+.remove-item-btn:hover {
+  color: var(--acc-rose-deep);
+}
+
+@media (max-width: 600px) {
+
+  /* جعل السلة لا تملأ الشاشة بالكامل على الموبايل لكي تظهر الخلفية */
+  .cart-sidebar {
+    width: 85%;
+    max-width: 340px;
+    right: -360px;
+    /* قيمة الإخفاء الافتراضية تناسب العرض الجديد */
+  }
+
+  .cart-sidebar.open {
+    right: 0;
+  }
+}
+
+/* --- تعديل عرض المنتجات في الموبايل (كل 2 جنب بعض) --- */
+@media (max-width: 768px) {
+  #products-container {
+    display: grid !important;
+    /* ده السحر! بيقسم الصف لعمودين متساويين تماماً */
+    grid-template-columns: repeat(2, 1fr) !important;
+    /* المسافة بين المنتجات (بالعرض وبالطول) */
+    gap: 12px !important;
+    padding: 10px !important;
+  }
+
+  /* تعديل مقاسات الكارت نفسه عشان يناسب المساحة الجديدة */
+  .product-card {
+    margin: 0 !important;
+    /* إلغاء أي هوامش قديمة كانت بتخرب التصميم */
+    padding: 8px !important;
+    /* تقليل الحشو الداخلي للكارت قليلاً */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    /* عشان الكروت كلها تطلع بنفس الطول بالظبط */
+  }
+
+  /* تصغير حجم الصور شوية عشان متطلعش ضخمة في المساحة الصغيرة */
+  .product-img-container {
+    height: 160px !important;
+    /* تقدري تغيري الارتفاع ده زي ما تحبي */
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .product-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* عشان الصورة متتمطش وتفضل متناسقة */
+  }
+
+  /* تصغير مقاس الخط للعناوين والأسعار والزرار عشان يناسب الموبايل */
+  .product-title {
+    font-size: 0.9rem !important;
+    margin: 6px 0 !important;
+    line-height: 1.3;
+  }
+
+  .product-price {
+    font-size: 0.85rem !important;
+    font-weight: bold;
+    margin-bottom: 6px !important;
+  }
+
+  /* منقي الألوان (Select Box) والزرار */
+  .color-selector,
+  .add-to-cart-btn {
+    font-size: 0.8rem !important;
+    padding: 6px 4px !important;
+    width: 100% !important;
+  }
+}
+
+/* --- رسالة التنبيه الأنيقة (Toast Notification) --- */
+/* تنسيق رسائل التنبيه الذكية (Toast) لتبدو مثالية على الموبايل والكمبيوتر */
+.toast-notification {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translate(-50%, 50px);
+  /* تبدأ من أسفل الشاشة وتتحرك لأعلى */
+  background-color: rgba(30, 30, 30, 0.95);
+  /* خلفية داكنة راقية لتسهيل القراءة */
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  /* زوايا دائرية ناعمة وأنيقة */
+  font-size: 0.9rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
+  z-index: 9999;
+  /* لضمان ظهورها فوق كل العناصر والسلة */
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease, visibility 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* الحل السحري للموبايل 👇 */
+  width: max-content;
+  /* تجعل عرض التنبيه مساوياً لحجم النص تماماً */
+  max-width: 90%;
+  /* حماية لعدم خروج التنبيه عن حدود شاشة الموبايل */
+  white-space: nowrap;
+  /* يمنع الكلمات من النزول لسطر جديد نهائياً */
+  text-align: center;
+}
+
+/* حركة الظهور الأنيقة */
+.toast-notification.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+/* تعديل طفيف وممتاز لشاشات الموبايل الصغيرة جداً لضمان تناسق الحجم */
+@media (max-width: 480px) {
+  .toast-notification {
+    font-size: 0.8rem;
+    /* تصغير الخط قليلاً ليناسب الشاشات الصغيرة جداً */
+    padding: 10px 18px;
+    /* تقليل الحشو لكي يظهر السطر بأكمله بوضوح */
+    bottom: 20px;
+    /* تقريبها قليلاً من الأسفل لتعطي مساحة للرؤية */
+  }
+}
+
+/* --- تنسيق أزرار التنقل (Pagination) في الموبايل --- */
+@media (max-width: 768px) {
+  #pagination-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    /* مسافة مريحة ومناسبة بين الأزرار */
+    margin: 25px 0 15px 0 !important;
+    /* مسافة كافية أسفل المنتجات */
+    padding: 0 10px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    flex-wrap: wrap !important;
+    /* إذا زاد عدد الصفحات، تنزل الأزرار لسطر جديد بانتظام دون أن تخرج عن الشاشة */
+  }
+
+  /* تنسيق الأزرار نفسها */
+  #pagination-container .page-btn {
+    min-width: 38px !important;
+    /* عرض مريح لسهولة الضغط بالإصبع */
+    height: 38px !important;
+    /* ارتفاع مربع متناسق */
+    padding: 0 6px !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    border-radius: 50% !important;
+    /* يجعل الأزرار دائرية تماماً بشكل مودرن وأنيق */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    box-sizing: border-box !important;
+  }
+
+  /* زر الصفحة السابقة والتالية (الأسهم ← و →) */
+  #pagination-container .page-btn:first-child,
+  #pagination-container .page-btn:last-child {
+    border-radius: 10px !important;
+    /* جعل أزرار الأسهم مستطيلة بحواف ناعمة لتتميز عن الأرقام */
+    font-size: 1.1rem !important;
+    padding: 0 10px !important;
+    min-width: 42px !important;
+  }
+
+  /* تأثير اللمس البسيط للزر غير الفعّال أو المغلق */
+  #pagination-container .page-btn:disabled {
+    opacity: 0.4 !important;
+    cursor: not-allowed !important;
+  }
 }
